@@ -10,5 +10,5 @@ tailwind.config = {
         textAccent: '#00554b'
       }
     }
-  }
+  },
 }

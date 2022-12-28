@@ -1,3 +1,15 @@
 * {
     font-family: Nunito;
 }
+
+.card-container {
+    height: 125px;
+    width: 460px;
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+}
+
+.toggled {
+    height: auto;
+}
