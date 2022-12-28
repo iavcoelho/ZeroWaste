@@ -48,7 +48,7 @@
         <div class="container" style="margin-bottom: 175px; margin-top: 300px; width: 500px;">
 
 
-            <button class="card-container py-5 overflow-hidden" onclick="toggle(this)">
+            <button class="card-container" onclick="toggle('restaurante1')">
                 <div class="bg-accent rounded-3xl text-black flex items-center mx-4"
                     style="height: 100px; border: solid 5px white;">
                     <div class="flex">
@@ -57,112 +57,129 @@
                             <h2 class="text-xl"><b>KFC</b><span> - Kentucky Fried Chicken</span></h2>
                             <img src="images/rating.png" class="my-2" style="margin-left: -6px; width: auto;" alt=""
                                 srcset="">
-                            <p class="text-xl">Fast Food</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-light rounded-3xl p-5 mt-7 mx-4 card hidden" style="width: auto;">
-                    <h1 class="text-3xl text-left text-black p-2"><b>Cabazes</b></h1>
-                    <div class="bg-secondary text-black text-left flex flex-row items-center justify-between p-3 rounded-3xl">
-                        <div class="flex-column">
-                            <h1 class="text-xl"><b>Cabaz Pequeno</b> - 2,99€</h1>
-                            <p><b>Alergénios:</b></p>
-                            <ol class="px-5">
-                                <li>Cereais que contém glúten</li>
-                                <li>Ovos</li>
-                            </ol>
-                        </div>
-                        <div class="img-wrapper bg-white rounded-xl flex items-center justify-center" style="width: 87px;height: 87px;">
-                            <img src="images/cabaz1.png" class="" alt="">
-                        </div>
-                    </div>
-                    <div class="bg-secondary text-black text-left p-3 mt-3 flex flex-row justify-between rounded-3xl">
-                        <div class="flex-column">
-                            <h1 class="text-xl"><b>Cabaz Pequeno</b> - 2,99€</h1>
-                            <p><b>Alergénios:</b></p>
-                            <ol class="px-5">
-                                <li>Cereais que contém glúten</li>
-                                <li>Ovos</li>
-                            </ol>
-                        </div>
-                        <div class="img-wrapper bg-white rounded-xl flex items-center justify-center" style="width: 87px;height: 87px;">
-                            <img src="images/cabaz2.png" class="" alt="">
+                            <p class="text-xl text-left">Fast Food</p>
                         </div>
                     </div>
                 </div>
             </button>
-
-            <button class="card-container py-5 overflow-hidden" onclick="toggle(this)">
-                <div class="bg-accent rounded-3xl text-black flex items-center mx-4 py-5"
-                style="height: 100px; border: solid 5px white;">
-                <div class="flex">
-                    <img src="images/logoRamona.png" class="m-7" style="max-height: 70px;" alt="">
-                    <div class="py-4 flex-column justify-between">
-                        <h2 class="text-xl"><b>Ramona</b></h2>
-                        <img src="images/rating.png" class="my-2" style="margin-left: -6px;" alt="" srcset="">
-                        <p class="text-xl">Hamburgueria</p>
+            <div id="restaurante1" class="card hidden" style="width: auto;">
+                <h1 class="text-3xl text-left text-black p-2"><b>Cabazes</b></h1>
+                <button
+                    class="bg-accent text-black text-left flex flex-row items-center justify-between p-3 rounded-3xl"
+                    style="width: 100%;" onclick="toggle('cabaz1')">
+                    <div class="flex-column">
+                        <h1 class="text-xl"><b>Cabaz Pequeno</b> - 2,99€</h1>
+                        <p><b>Alergénios:</b></p>
+                        <ol class="px-5">
+                            <li>Cereais que contém glúten</li>
+                            <li>Ovos</li>
+                        </ol>
                     </div>
+                    <div class="img-wrapper bg-white rounded-xl flex items-center justify-center"
+                        style="width: 87px;height: 87px;">
+                        <img src="images/cabaz1.png" class="" alt="">
+                    </div>
+                </button>
+
+                <div id="cabaz1" class="bg-secondary px-5 hidden mt-3 rounded-3xl flex items-center justify-between"
+                    style="height: 75px;">
+                    <button class="bg-primary rounded-3xl text-white p-2" onclick="toggle('modal')">Adicionar restrições</button>
+                    <button class="bg-primary rounded-3xl text-white p-2">Adicionar ao carrinho</button>
+                </div>
+
+                <div style="cursor: pointer;" onclick="toggle('cabaz2')"
+                    class="bg-accent text-black text-left p-3 mt-3 flex flex-row justify-between rounded-3xl">
+                    <div class="flex-column">
+                        <h1 class="text-xl"><b>Cabaz Pequeno</b> - 2,99€</h1>
+                        <p><b>Alergénios:</b></p>
+                        <ol class="px-5">
+                            <li>Cereais que contém glúten</li>
+                            <li>Ovos</li>
+                        </ol>
+                    </div>
+                    <div class="img-wrapper bg-white rounded-xl flex items-center justify-center"
+                        style="width: 87px;height: 87px;">
+                        <img src="images/cabaz2.png" class="" alt="">
+                    </div>
+                </div>
+                <div id="cabaz2" class="bg-secondary px-5 hidden mt-3 rounded-3xl flex items-center justify-between"
+                    style="height: 75px;">
+                    <button class="bg-primary rounded-3xl text-white p-2" onclick="toggle('modal')">Adicionar restrições</button>
+                    <button class="bg-primary rounded-3xl text-white p-2">Adicionar ao carrinho</button>
                 </div>
             </div>
-                <div class="bg-light rounded-3xl p-5 mt-7 card hidden mx-4" style="width: auto;">
-                    <h1 class="text-3xl text-left text-black p-2"><b>Cabazes</b></h1>
-                    <h3 class="text-black">De momento este restaurante ainda não disponibilizou cabazes</h3>
-                </div>
-            </button>
 
-            <button class="card-container py-5 overflow-hidden" onclick="toggle(this)">
+            <button class="card-container" onclick="toggle('restaurante2')">
                 <div class="bg-accent rounded-3xl text-black flex items-center mx-4 py-5"
-                style="height: 100px; border: solid 5px white;">
-                <div class="flex">
-                    <img src="images/logoVitaminas.png" class="m-7" style="max-height: 70px;" alt="">
-                    <div class="py-4 flex-column justify-between">
-                        <h2 class="text-xl"><b>Vitaminas</b></h2>
-                        <img src="images/rating.png" class="my-2" style="margin-left: -6px;" alt="" srcset="">
-                        <p class="text-xl">Saudável</p>
+                    style="height: 100px; border: solid 5px white;">
+                    <div class="flex">
+                        <img src="images/logoRamona.png" class="m-7" style="max-height: 70px;" alt="">
+                        <div class="py-4 flex-column justify-between">
+                            <h2 class="text-xl"><b>Ramona</b></h2>
+                            <img src="images/rating.png" class="my-2" style="margin-left: -6px;" alt="" srcset="">
+                            <p class="text-xl">Hamburgueria</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-                <div class="bg-light rounded-3xl p-5 mt-7 card hidden mx-4" style="width: auto;">
-                    <h1 class="text-3xl text-left text-black p-2"><b>Cabazes</b></h1>
-                    <h3 class="text-black">De momento este restaurante ainda não disponibilizou cabazes</h3>
-                </div>
             </button>
+            <div id="restaurante2" class="card hidden" style="width: auto;">
+                <h1 class="text-3xl text-left text-black p-2"><b>Cabazes</b></h1>
+                <h3 class="text-black">De momento este restaurante ainda não disponibilizou cabazes</h3>
+            </div>
 
-            <button class="card-container py-5 overflow-hidden" onclick="toggle(this)">
+            <button class="card-container" onclick="toggle('restaurante3')">
                 <div class="bg-accent rounded-3xl text-black flex items-center mx-4 py-5"
-                style="height: 100px; border: solid 5px white;">
-                <div class="flex">
-                    <img src="images/logoLIDL.png" class="m-7" style="max-height: 70px;" alt="">
-                    <div class="py-4 flex-column justify-between">
-                        <h2 class="text-xl"><b>LIDL</b></h2>
-                        <img src="images/rating.png" class="my-2" style="margin-left: -6px;" alt="" srcset="">
-                        <p class="text-xl">Mercearia</p>
+                    style="height: 100px; border: solid 5px white;">
+                    <div class="flex">
+                        <img src="images/logoVitaminas.png" class="m-7" style="max-height: 70px;" alt="">
+                        <div class="py-4 flex-column justify-between">
+                            <h2 class="text-xl"><b>Vitaminas</b></h2>
+                            <img src="images/rating.png" class="my-2" style="margin-left: -6px;" alt="" srcset="">
+                            <p class="text-xl">Saudável</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-                <div class="bg-light rounded-3xl p-5 mt-7 card hidden mx-4" style="width: auto;">
-                    <h1 class="text-3xl text-left text-black p-2"><b>Cabazes</b></h1>
-                    <h3 class="text-black">De momento este restaurante ainda não disponibilizou cabazes</h3>
-                </div>
             </button>
+            <div id="restaurante3" class="card hidden" style="width: auto;">
+                <h1 class="text-3xl text-left text-black p-2"><b>Cabazes</b></h1>
+                <h3 class="text-black">De momento este restaurante ainda não disponibilizou cabazes</h3>
+            </div>
 
-            <button class="card-container py-5 overflow-hidden" onclick="toggle(this)">
+            <button class="card-container" onclick="toggle('restaurante4')">
                 <div class="bg-accent rounded-3xl text-black flex items-center mx-4 py-5"
-                style="height: 100px; border: solid 5px white;">
-                <div class="flex">
-                    <img src="images/logoMiniPreco.png" class="m-7" style="max-height: 70px;" alt="">
-                    <div class="py-4 flex-column justify-between">
-                        <h2 class="text-xl"><b>Mini Preco</b></h2>
-                        <img src="images/rating.png" class="my-2" style="margin-left: -6px;" alt="" srcset="">
-                        <p class="text-xl">Mercearia</p>
+                    style="height: 100px; border: solid 5px white;">
+                    <div class="flex">
+                        <img src="images/logoLIDL.png" class="m-7" style="max-height: 70px;" alt="">
+                        <div class="py-4 flex-column justify-between">
+                            <h2 class="text-xl"><b>LIDL</b></h2>
+                            <img src="images/rating.png" class="my-2" style="margin-left: -6px;" alt="" srcset="">
+                            <p class="text-xl">Mercearia</p>
+                        </div>
                     </div>
                 </div>
+            </button>
+            <div id="restaurante4" class="card hidden" style="width: auto;">
+                <h1 class="text-3xl text-left text-black p-2"><b>Cabazes</b></h1>
+                <h3 class="text-black">De momento este restaurante ainda não disponibilizou cabazes</h3>
             </div>
-                <div class="bg-light rounded-3xl p-5 mt-7 card hidden mx-4" style="width: auto;">
-                    <h1 class="text-3xl text-left text-black p-2"><b>Cabazes</b></h1>
-                    <h3 class="text-black">De momento este restaurante ainda não disponibilizou cabazes</h3>
+
+            <button class="card-container" onclick="toggle('restaurante5')">
+                <div class="bg-accent rounded-3xl text-black flex items-center mx-4 py-5"
+                    style="height: 100px; border: solid 5px white;">
+                    <div class="flex">
+                        <img src="images/logoMiniPreco.png" class="m-7" style="max-height: 70px;" alt="">
+                        <div class="py-4 flex-column justify-between">
+                            <h2 class="text-xl"><b>Mini Preco</b></h2>
+                            <img src="images/rating.png" class="my-2" style="margin-left: -6px;" alt="" srcset="">
+                            <p class="text-xl">Mercearia</p>
+                        </div>
+                    </div>
                 </div>
             </button>
+            <div id="restaurante5" class="card hidden" style="width: auto;">
+                <h1 class="text-3xl text-left text-black p-2"><b>Cabazes</b></h1>
+                <h3 class="text-black">De momento este restaurante ainda não disponibilizou cabazes</h3>
+            </div>
 
         </div>
 
@@ -180,16 +197,41 @@
             <i class="fa-solid fa-gear text-textAccent text-5xl text-opacity-60"></i>
             <i class="fa-regular fa-file text-textAccent text-5xl text-opacity-60"></i>
         </div>
-
     </div>
+
+    <div id="modal" style="z-index: 9000; width: 100vw; height: 100vh;top: 0;"
+        class="absolute fixed bg-black bg-opacity-80 flex items-center justify-center" onclick="toggle('modal')">
+        <div class="bg-accent p-4 font-bold text-xl text-primary rounded-3xl"
+            style="width: 300px; z-index: 9001;">
+            <h1 class="m-2">Adicionar restrições alimentares</h1>
+            <div id="restricoes" class="m-2 flex items-center justify-between">
+                <div class="flex flex-col">
+                    <label class="flex" for="1"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="1">Glúten</label>
+                    <label class="flex" for="2"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="2">Crustáceos</label>
+                    <label class="flex" for="3"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="3">Ovos</label>
+                    <label class="flex" for="4"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="4">Leite</label>
+                    <label class="flex" for="5"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="5">Açúcar</label>
+                    <label class="flex" for="6"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="6">Mostarda</label>
+                </div>
+                <div class="flex flex-col">
+                    <label class="flex" for="a"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="a">Peixes</label>
+                    <label class="flex" for="b"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="b">Amendoins</label>
+                    <label class="flex" for="c"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="c">Soja</label>
+                    <label class="flex" for="d"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="d">Moluscos</label>
+                    <label class="flex" for="e"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="e">Aipo</label>
+                    <label class="flex" for="f"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="f">Tremoços</label>
+                </div>
+            </div>
+            <div class="flex items-center justify-center"><button class="bg-primary text-accent py-1 px-10 rounded-xl" onclick="toggle('modal')">OK</button></div>
+        </div>
+    </div>
+
 
     <script>
 
-        function toggle(button) {
-            console.log("toggle")
-            button.classList.toggle("toggled");
+        function toggle(id) {
+            document.getElementById(id).classList.toggle("hidden");
             //get the children of the button that has the class "card" and toggle the class hidden
-            button.querySelector(".card").classList.toggle("hidden");
 
         }
 

@@ -3,13 +3,39 @@
 }
 
 .card-container {
-    height: 125px;
     width: 100%;
-    background-color: transparent;
-    transition: all 0.3s ease-in-out;
-    z-index: 10;
+    padding: 0.5em 0;
 }
 
-.toggled {
-    height: auto;
+.card {
+    margin-top: 1.75rem;
+    padding: 2rem;
+    margin: 0 1rem;
+    border-radius: 1.5rem;
+    background-color: #D9FCC9;
+
+}
+
+.checkbox{
+    position: relative;
+    height: 1.25rem;
+    width: 1.25rem;
+    flex-shrink: 0;
+    appearance: none;
+    border-radius: 0.375rem;
+    background-color: #00AA95;
+    margin: 0.25rem;
+
+}
+
+.checkbox:focus{
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.checkbox:checked {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("https://webdevtrick.com/demos/checkmark.svg");
+    background-size: 75%;
 }
