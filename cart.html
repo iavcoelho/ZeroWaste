@@ -31,7 +31,7 @@
                     class="text-textDark bg-accent py-3 px-5 font-bold text-2xl rounded-3xl">Carrinho de Compras</span>
             </div>
             <div class="bg-white mx-6 pt-10 rounded-3xl" style="height: 55vh;">
-                <div class="bg-accent rounded-3xl text-black flex items-center mx-4"
+                <div id="1oCabaz"  class="bg-accent rounded-3xl text-black flex items-center mx-4"
                     style="height: 150px; border: solid 5px white;">
                     <div class="flex">
                         <img src="images/logoKFC.png" class="m-7" style="max-height: 70px;">
@@ -47,13 +47,13 @@
                                     <button class="bg-gray-200 w-5 h-5 rounded-md">-</button>
                                 </div>
                                 <p>Preço: 2,99€</p>
-                                <button class="w-5 h-5 rounded-md"><i class="fa text-red-400 fa-trash-can"></i></button>
+                                <button class="w-5 h-5 rounded-md"><i class="fa text-red-400 fa-trash-can" onclick="toggle('1oCabaz')"></i></button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="bg-accent rounded-3xl text-black flex items-center mx-4"
-                style="height: 150px; border: solid 5px white;">
+                style="height: 150px; border: solid 5px white;" id="2oCabaz">
                 <div class="flex">
                     <img src="images/logoKFC.png" class="m-7" style="max-height: 70px;">
                     <div class="py-4 flex-column justify-between" style="width: 250px;">
@@ -68,12 +68,12 @@
                                 <button class="bg-gray-200 w-5 h-5 rounded-md">-</button>
                             </div>
                             <p>Preço: 2,99€</p>
-                            <button class="w-5 h-5 rounded-md"><i class="fa text-red-400 fa-trash-can"></i></button>
+                            <button class="w-5 h-5 rounded-md"><i class="fa text-red-400 fa-trash-can" onclick="toggle('2oCabaz')"></i></button>
                         </div>
                     </div>
                 </div>
                 <div class="absolute bg-accent text-black rounded-xl text-sm pr-2 pt-1 text-right" style="bottom: 120px; right:50px;width: 90px; height: 45px;">Preço Total: 5,98€</div>
-                <button class="absolute bg-primary text-white font-bold rounded-xl" style="bottom: 25px; right:50px;width: 90px; height: 45px;">Checkout</button>
+                <button class="absolute bg-primary text-white font-bold rounded-xl " style="bottom: 25px; right:50px;width: 90px; height: 45px;">Checkout</button>
             </div>
             </div>
         </div>
@@ -97,6 +97,18 @@
     </div>
 
     </div>
+
+
+    <script>
+
+        function toggle(id) {
+            document.getElementById(id).classList.toggle("hidden");
+            //get the children of the button that has the class "card" and toggle the class hidden
+
+        }
+
+    </script>
+
 </body>
 
 </html>
