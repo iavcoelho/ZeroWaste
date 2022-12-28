@@ -7,7 +7,8 @@ tailwind.config = {
         light: '#D9FCC9',
         white: '#FFFFFF',
         accent : '#B7F49C',
-        textAccent: '#00554b'
+        textAccent: '#00554b',
+        textDark: "#026357"
       }
     }
   },
