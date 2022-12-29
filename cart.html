@@ -12,13 +12,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito" />
     <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 </head>
 
 <body class="bg-black flex items-center justify-center text-white">
-    <div class="bg-primary" style="width: 500px; min-height: 100vh;">
+    <div class="bg-primary" style="width: 500px; min-height: 100vh; height: 100%;">
 
-        <div class="container fixed">
-            <div class="bg-accent flex justify-between sticky top-0 z-50"
+        <div class="container fixed top-0 z-50">
+            <div class="bg-accent flex justify-between sticky"
                 style="height: 100px;width: 500px; border-bottom-left-radius: 50% 30%; border-bottom-right-radius: 50% 30%;">
                 <i class="fa-solid fa-cart-shopping text-textAccent text-5xl py-3 pl-6 text-opacity-60"></i>
                 <img src="images/ZeroWaste logo.png" style="height: 90px;" class="py-3">
@@ -26,56 +27,17 @@
             </div>
         </div>
 
-        <div class="absolute w-full" style="top: 15%;width: 500px;">
+        <div class="w-full" style="margin-top: 30%;margin-bottom: 30% ;width: 500px;">
             <div class="text-center"><span
                     class="text-textDark bg-accent py-3 px-5 font-bold text-2xl rounded-3xl">Carrinho de Compras</span>
             </div>
-            <div class="bg-white mx-6 pt-10 rounded-3xl" style="height: 55vh;">
-                <div id="1oCabaz"  class="bg-accent rounded-3xl text-black flex items-center mx-4"
-                    style="height: 150px; border: solid 5px white;">
-                    <div class="flex">
-                        <img src="images/logoKFC.png" class="m-7" style="max-height: 70px;">
-                        <div class="py-4 flex-column justify-between" style="width: 250px;">
-                            <h2 class="text-xl">Cabaz Pequeno - KFC</h2>
-                            <p>Alergénios:</p>
-                            <p>- Glúten</p>
-                            <p>- Ovos</p>
-                            <div class="flex flex-row justify-between" style="width: 100%;">
-                                <div>
-                                    <button class="mr-1 bg-primary w-5 h-5 rounded-md">+</button>
-                                    <button class="mr-1 bg-white w-5 h-5 rounded-md">1</button>
-                                    <button class="bg-gray-200 w-5 h-5 rounded-md">-</button>
-                                </div>
-                                <p>Preço: 2,99€</p>
-                                <button class="w-5 h-5 rounded-md"><i class="fa text-red-400 fa-trash-can" onclick="toggle('1oCabaz')"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-accent rounded-3xl text-black flex items-center mx-4"
-                style="height: 150px; border: solid 5px white;" id="2oCabaz">
-                <div class="flex">
-                    <img src="images/logoKFC.png" class="m-7" style="max-height: 70px;">
-                    <div class="py-4 flex-column justify-between" style="width: 250px;">
-                        <h2 class="text-xl">Cabaz Pequeno - KFC</h2>
-                        <p>Alergénios:</p>
-                        <p>- Amendoins</p>
-                        <p>- Leite</p>
-                        <div class="flex flex-row justify-between" style="width: 100%;">
-                            <div>
-                                <button class="mr-1 bg-primary w-5 h-5 rounded-md">+</button>
-                                <button class="mr-1 bg-white w-5 h-5 rounded-md">1</button>
-                                <button class="bg-gray-200 w-5 h-5 rounded-md">-</button>
-                            </div>
-                            <p>Preço: 2,99€</p>
-                            <button class="w-5 h-5 rounded-md"><i class="fa text-red-400 fa-trash-can" onclick="toggle('2oCabaz')"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="absolute bg-accent text-black rounded-xl text-sm pr-2 pt-1 text-right" style="bottom: 120px; right:50px;width: 90px; height: 45px;">Preço Total: 5,98€</div>
-                <button class="absolute bg-primary text-white font-bold rounded-xl " style="bottom: 25px; right:50px;width: 90px; height: 45px;">Checkout</button>
+            <div class="bg-white mx-6 pt-10 rounded-3xl relative" style="padding-bottom:15rem;" id="cartArea">
+                <div id="total" class="absolute bg-accent text-black rounded-xl text-sm pr-2 pt-1 text-right"
+                style="bottom: 120px; right:50px;width: 90px; height: 45px;"></div>
+                <button class="absolute bg-primary text-white font-bold rounded-xl "
+                style="bottom: 25px; right:50px;width: 90px; height: 45px;">Checkout</button>
             </div>
-            </div>
+        </div>
         </div>
 
 
@@ -108,6 +70,8 @@
         }
 
     </script>
+    <script src="dados.js"></script>
+    <script src="cart.js"></script>
 
 </body>
 

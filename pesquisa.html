@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="main.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="config.js"></script>
+    <script src="dados.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 </head>
 
 <body class="bg-black flex items-center justify-center text-white">
@@ -18,7 +20,8 @@
         <div class="container fixed">
             <div class="bg-accent flex justify-between sticky top-0 z-50"
                 style="height: 100px;width: 500px; border-bottom-left-radius: 50% 30%; border-bottom-right-radius: 50% 30%;">
-                <a href="cart.html"><i class="fa-solid fa-cart-shopping text-textAccent text-5xl py-3 pl-6 text-opacity-60"></i></a>
+                <a href="cart.html"><i
+                        class="fa-solid fa-cart-shopping text-textAccent text-5xl py-3 pl-6 text-opacity-60"></i></a>
                 <img src="images/ZeroWaste logo.png" style="height: 90px;" class="py-3">
                 <i class="fa-solid fa-user text-textAccent text-5xl py-3 pr-6 text-opacity-60"></i>
             </div>
@@ -83,8 +86,11 @@
 
                 <div id="cabaz1" class="bg-secondary px-5 hidden mt-3 rounded-3xl flex items-center justify-between"
                     style="height: 75px;">
-                    <button class="bg-primary rounded-3xl text-white p-2" onclick="toggle('modal')">Adicionar restrições</button>
-                    <button class="bg-primary rounded-3xl text-white p-2">Adicionar ao carrinho</button>
+                    <button class="bg-primary rounded-3xl text-white p-2" onclick="toggle('modal')">Adicionar
+                        restrições</button>
+                    <button class="bg-primary rounded-3xl text-white p-2"
+                        onclick="addCart('KFC', 'Cabaz Pequeno', 2.99,  $('#restricoes input:checked').map(function(){return $(this).val();}))">Adicionar ao
+                        carrinho</button>
                 </div>
 
                 <div style="cursor: pointer;" onclick="toggle('cabaz2')"
@@ -104,8 +110,11 @@
                 </div>
                 <div id="cabaz2" class="bg-secondary px-5 hidden mt-3 rounded-3xl flex items-center justify-between"
                     style="height: 75px;">
-                    <button class="bg-primary rounded-3xl text-white p-2" onclick="toggle('modal')">Adicionar restrições</button>
-                    <button class="bg-primary rounded-3xl text-white p-2">Adicionar ao carrinho</button>
+                    <button class="bg-primary rounded-3xl text-white p-2" onclick="toggle('modal')">Adicionar
+                        restrições</button>
+                        <button class="bg-primary rounded-3xl text-white p-2"
+                        onclick="addCart('KFC', 'Cabaz Pequeno', 2.99,  $('#restricoes input:checked').map(function(){return $(this).val();}))">Adicionar ao
+                        carrinho</button>
                 </div>
             </div>
 
@@ -200,29 +209,41 @@
     </div>
 
     <div id="modal" style="z-index: 9000; width: 100vw; height: 100vh;top: 0;"
-        class="absolute hidden fixed bg-black bg-opacity-80 flex items-center justify-center" onclick="toggle('modal')">
-        <div class="bg-accent p-4 font-bold text-xl text-primary rounded-3xl"
-            style="width: 300px; z-index: 9001;">
+        class="absolute hidden fixed bg-black bg-opacity-80 flex items-center justify-center">
+        <div class="bg-accent p-4 font-bold text-xl text-primary rounded-3xl" style="width: 300px; z-index: 9010;">
             <h1 class="m-2">Adicionar restrições alimentares</h1>
             <div id="restricoes" class="m-2 flex items-center justify-between">
                 <div class="flex flex-col">
-                    <label class="flex" for="1"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="1">Glúten</label>
-                    <label class="flex" for="2"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="2">Crustáceos</label>
-                    <label class="flex" for="3"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="3">Ovos</label>
-                    <label class="flex" for="4"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="4">Leite</label>
-                    <label class="flex" for="5"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="5">Açúcar</label>
-                    <label class="flex" for="6"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="6">Mostarda</label>
+                    <label class="flex" for="1"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
+                            id="1" value="Glúten">Glúten</label>
+                    <label class="flex" for="2"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
+                            id="2" value="Crustáceos">Crustáceos</label>
+                    <label class="flex" for="3"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
+                            id="3" value="Ovos">Ovos</label>
+                    <label class="flex" for="4"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
+                            id="4" value="Leite">Leite</label>
+                    <label class="flex" for="5"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
+                            id="5" value="Açúcar">Açúcar</label>
+                    <label class="flex" for="6"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
+                            id="6" value="Mostarda">Mostarda</label>
                 </div>
                 <div class="flex flex-col">
-                    <label class="flex" for="a"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="a">Peixes</label>
-                    <label class="flex" for="b"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="b">Amendoins</label>
-                    <label class="flex" for="c"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="c">Soja</label>
-                    <label class="flex" for="d"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="d">Moluscos</label>
-                    <label class="flex" for="e"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="e">Aipo</label>
-                    <label class="flex" for="f"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300" id="f">Tremoços</label>
+                    <label class="flex" for="a"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
+                            id="a" value="Peixes">Peixes</label>
+                    <label class="flex" for="b"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
+                            id="b" value="Amendoins">Amendoins</label>
+                    <label class="flex" for="c"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
+                            id="c" value="Soja">Soja</label>
+                    <label class="flex" for="d"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
+                            id="d" value="Moluscos">Moluscos</label>
+                    <label class="flex" for="e"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
+                            id="e" value="Aipo">Aipo</label>
+                    <label class="flex" for="f"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
+                            id="f" value="Tremoços">Tremoços</label>
                 </div>
             </div>
-            <div class="flex items-center justify-center"><button class="bg-primary text-accent py-1 px-10 rounded-xl" onclick="toggle('modal')">OK</button></div>
+            <div class="flex items-center justify-center"><button class="bg-primary text-accent py-1 px-10 rounded-xl"
+                    onclick="toggle('modal')">OK</button></div>
         </div>
     </div>
 
