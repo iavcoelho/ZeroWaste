@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="config.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito" />
+    <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+</head>
+
+<body class="bg-black flex items-center justify-center text-white">
+    <div class="bg-primary relative" style="width: 500px; height: 100vh;">
+        <div class="bg-accent flex items-center sticky top-0 z-50 p-10"
+            style="height: 100px;width: 500px; border-bottom-left-radius: 50% 30%; border-bottom-right-radius: 50% 30%;">
+            <button id="btnSidebarToggler" type="button" class="text-primary hover:text-textAccent">
+                <svg id="navClosed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" style="height: 52px; width:52px;">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <svg id="navOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" style="height: 52px; width:52px;" class="hidden">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <nav id="navbar" style="width: 500px;" class="fixed top-0 z-40 flex flex-row justify-end px-4 sm:justify-between">
+        </nav>
+        <div id="containerSidebar" class="z-40 ">
+            <div class="navbar-menu relative z-40">
+                <div id="sidebar" class="fixed -translate-x-full" style="width: 200px; height: 100%;">
+                    
+                    <div class="bg-accent py-20" style="height: 100%; border-bottom-right-radius: 70% 90% ;">
+                        <ul class="text-center">
+                            <a href="adicionarCabaz.html">
+                                <li class="my-10"><i class="fa-solid fa-circle-plus text-textDark" style="font-size: 64px;"></i><p class="text-xl text-black">Adicionar Cabaz</p></li>
+                            </a>
+                            <a href="homepageRestaurante.html">
+                                <li class="my-10"><i class="fa fa-house text-textDark" style="font-size:64px;"></i><p class="text-xl text-black">Página Inicial</p></li>
+                            </a>
+                            <li class="my-10"><i class="fa fa-bell text-textDark" style="font-size:64px;"></i><p class="text-xl text-black">Notificações</p></li>
+                            <li class="my-10"><i class="fa fa-gear text-textDark" style="font-size:64px;"></i><p class="text-xl text-black">Definições</p></li>
+                        </ul>
+                    </div>
+                
+                </div>
+            </div>
+            <div class="mx-auto lg:ml-80"></div>
+        </div>
+
+        <div class="flex justify-center items-center"><div class="bg-accent fixed bottom-20 p-3 rounded-3xl text-black"><a href="adicionarCabaz.html"><button>Adicionar novo cabaz</button></a></div></div>
+
+    </div>
+
+    <script src="sidebar.js"></script>
+
+</body>
+
+</html>
