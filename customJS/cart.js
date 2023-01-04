@@ -14,12 +14,12 @@ $(document).ready( function (){
         //add the html to the div
         div.innerHTML = `<div class="bg-accent rounded-3xl text-black flex items-center mx-4 mt-2" style="height: auto;>
                     <div class="flex">
-                        <img src="images/logo`+ restaurante + `.png" class="m-7" style="max-height: 70px;">
+                        <img src="${restaurante}" class="m-7" style="max-height: 70px;">
                         <div class="py-4 flex-column justify-between" style="width: 250px;">
-                            <h2 class="text-xl">`+nome+` - `+restaurante+`</h2>
+                            <h2 class="text-xl">`+nome+`</h2>
                             <table id="table`+ id +`">Alergénios:</table>
                             <div class="flex flex-row justify-between" style="width: 100%;">
-                                <p><b>Preço</b>: `+ preco + `</p>
+                                <p><b>Preço</b>: `+ preco + `€</p>
                                 <button class="w-5 h-5 rounded-md"><i class="fa text-red-400 fa-trash-can"
                                         onclick="removeCart('`+ id +`')"></i></button>
                             </div>
@@ -35,13 +35,16 @@ $(document).ready( function (){
         }
     })})
 
-$("#total").text('Preço Total: ' + precoTotal)
+$("#total").text('Preço Total: ' + (Math.round(precoTotal * 100))/100 + '€')
+
+writeToDB(cart)
 
 function removeCart(id) {
     cart.splice(cart.indexOf(cart.find(element => element.id == id)), 1)
-    precoTotal = cart.length > 0 ? cart.reduce((acc, element) => acc + element.preco, 0) : 0
+    precoTotal = cart.length > 0 ? cart.reduce((acc, element) => acc + parseFloat(element.preco), 0) : 0
     console.log(cart)
     toggle(id)
-    localStorage.setItem('cart', JSON.stringify(cart))
+    localStorage.setItem(user, JSON.stringify(cart))
+    writeToDB(cart)
     $("#total").text('Preço Total: ' + precoTotal)
 }

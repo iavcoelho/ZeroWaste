@@ -13,6 +13,7 @@ loginForm.addEventListener('submit', (e) => {
         window.location.href = "homepage.html";
     }).catch(error => {
         console.log(error)
+        alert(error.message)
     });
 
     firebase.auth().onAuthStateChanged((user) => {

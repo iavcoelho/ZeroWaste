@@ -12,15 +12,22 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito" />
     <link rel="stylesheet" href="main.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-    <style>#sidebar {
-        opacity: 0;
-        transition: all 300ms cubic-bezier(0, 0.77, 0.58, 1);
-    }
-    
-    #sidebar.show {
-        transform: translateX(0);
-        opacity:1;
-    }</style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.6.8/firebase-app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.6.8/firebase-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.6.8/firebase-database.js"></script>
+    <script src="customJS/main.js"></script>
+
+    <style>
+        #sidebar {
+            opacity: 0;
+            transition: all 300ms cubic-bezier(0, 0.77, 0.58, 1);
+        }
+
+        #sidebar.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    </style>
 </head>
 
 <body class="bg-black flex items-center justify-center text-white">
@@ -39,36 +46,48 @@
                 </svg>
             </button>
         </div>
-        <nav id="navbar" style="width: 500px;" class="fixed top-0 z-40 flex flex-row justify-end px-4 sm:justify-between">
+        <nav id="navbar" style="width: 500px;"
+            class="fixed top-0 z-40 flex flex-row justify-end px-4 sm:justify-between">
         </nav>
         <div id="containerSidebar" class="z-40 ">
             <div class="navbar-menu relative z-40">
                 <div id="sidebar" class="fixed -translate-x-full" style="width: 200px; height: 100%;">
-                    
+
                     <div class="bg-accent py-20" style="height: 100%; border-bottom-right-radius: 70% 90% ;">
                         <ul class="text-center">
                             <a href="adicionarCabaz.html">
-                                <li class="my-10"><i class="fa-solid fa-circle-plus text-textDark" style="font-size: 64px;"></i><p class="text-xl text-black">Adicionar Cabaz</p></li>
+                                <li class="my-10"><i class="fa-solid fa-circle-plus text-textDark"
+                                        style="font-size: 64px;"></i>
+                                    <p class="text-xl text-black">Adicionar Cabaz</p>
+                                </li>
                             </a>
                             <a href="homepageRestaurante.html">
-                                <li class="my-10"><i class="fa fa-house text-textDark" style="font-size:64px;"></i><p class="text-xl text-black">Página Inicial</p></li>
+                                <li class="my-10"><i class="fa fa-house text-textDark" style="font-size:64px;"></i>
+                                    <p class="text-xl text-black">Página Inicial</p>
+                                </li>
                             </a>
-                            <li class="my-10"><i class="fa fa-bell text-textDark" style="font-size:64px;"></i><p class="text-xl text-black">Notificações</p></li>
-                            <li class="my-10"><i class="fa fa-gear text-textDark" style="font-size:64px;"></i><p class="text-xl text-black">Definições</p></li>
+                            <li class="my-10"><i class="fa fa-bell text-textDark" style="font-size:64px;"></i>
+                                <p class="text-xl text-black">Notificações</p>
+                            </li>
+                            <li class="my-10"><i class="fa fa-gear text-textDark" style="font-size:64px;"></i>
+                                <p class="text-xl text-black">Definições</p>
+                            </li>
                         </ul>
                     </div>
-                
+
                 </div>
             </div>
             <div class="mx-auto lg:ml-80"></div>
         </div>
 
-        <div class="flex justify-center items-center"><div class="bg-accent fixed bottom-20 p-3 rounded-3xl text-black"><a href="adicionarCabaz.html"><button>Adicionar novo cabaz</button></a></div></div>
+        <div class="flex justify-center items-center">
+            <div class="bg-accent fixed bottom-20 p-3 rounded-3xl text-black"><a
+                    href="adicionarCabaz.html"><button>Adicionar novo cabaz</button></a></div>
+        </div>
 
     </div>
 
-    <script src="sidebar.js"></script>
-
+    <script src="customJS/sidebar.js"></script>
 </body>
 
 </html>
