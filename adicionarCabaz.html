@@ -12,15 +12,21 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito" />
     <link rel="stylesheet" href="main.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-    <style>#sidebar {
-        opacity: 0;
-        transition: all 300ms cubic-bezier(0, 0.77, 0.58, 1);
-    }
-    
-    #sidebar.show {
-        transform: translateX(0);
-        opacity:1;
-    }</style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.6.8/firebase-app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.6.8/firebase-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.6.8/firebase-database.js"></script>
+    <script src="customJS/main.js"></script>
+    <style>
+        #sidebar {
+            opacity: 0;
+            transition: all 300ms cubic-bezier(0, 0.77, 0.58, 1);
+        }
+
+        #sidebar.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    </style>
 </head>
 
 <body class="bg-black flex items-center justify-center text-white">
@@ -39,25 +45,35 @@
                 </svg>
             </button>
         </div>
-        <nav id="navbar" style="width: 500px;" class="fixed top-0 z-40 flex flex-row justify-end px-4 sm:justify-between">
+        <nav id="navbar" style="width: 500px;"
+            class="fixed top-0 z-40 flex flex-row justify-end px-4 sm:justify-between">
         </nav>
         <div id="containerSidebar" class="z-40 ">
             <div class="navbar-menu relative z-40">
                 <div id="sidebar" class="fixed -translate-x-full" style="width: 200px; height: 100%;">
-                    
+
                     <div class="bg-accent py-20" style="height: 100%; border-bottom-right-radius: 70% 90% ;">
                         <ul class="text-center">
                             <a href="adicionarCabaz.html">
-                                <li class="my-10"><i class="fa-solid fa-circle-plus text-textDark" style="font-size: 64px;"></i><p class="text-xl text-black">Adicionar Cabaz</p></li>
+                                <li class="my-10"><i class="fa-solid fa-circle-plus text-textDark"
+                                        style="font-size: 64px;"></i>
+                                    <p class="text-xl text-black">Adicionar Cabaz</p>
+                                </li>
                             </a>
                             <a href="homepageRestaurante.html">
-                                <li class="my-10"><i class="fa fa-house text-textDark" style="font-size:64px;"></i><p class="text-xl text-black">Página Inicial</p></li>
+                                <li class="my-10"><i class="fa fa-house text-textDark" style="font-size:64px;"></i>
+                                    <p class="text-xl text-black">Página Inicial</p>
+                                </li>
                             </a>
-                            <li class="my-10"><i class="fa fa-bell text-textDark" style="font-size:64px;"></i><p class="text-xl text-black">Notificações</p></li>
-                            <li class="my-10"><i class="fa fa-gear text-textDark" style="font-size:64px;"></i><p class="text-xl text-black">Definições</p></li>
+                            <li class="my-10"><i class="fa fa-bell text-textDark" style="font-size:64px;"></i>
+                                <p class="text-xl text-black">Notificações</p>
+                            </li>
+                            <li class="my-10"><i class="fa fa-gear text-textDark" style="font-size:64px;"></i>
+                                <p class="text-xl text-black">Definições</p>
+                            </li>
                         </ul>
                     </div>
-                
+
                 </div>
             </div>
             <div class="mx-auto lg:ml-80"></div>
@@ -65,53 +81,101 @@
 
         <div class="px-20 py-10">
             <h1 class="text-white font-extrabold text-3xl">Adicionar Cabazes</h3>
-            <div class="bg-white w-full rounded-3xl p-10">
-                <form action="">
-                    <input class="bg-primary m-3 bg-opacity-20 rounded-md text-primary placeholder-primary px-3 py-1" placeholder="Título do Cabaz" type="text" name="" id="">
-                    <textarea style="height: 160px;" class="bg-primary m-3 bg-opacity-20 rounded-md text-primary placeholder-primary px-3 py-1" placeholder="Descrição" type="text" name="" id=""></textarea>
-                    <h3 class="mx-3 text-primary font-bold">Restrições Alimentares</h3>
-                    <div id="restricoes" class="mx-3 mb-3 px-3 py-2 text-primary flex items-center justify-between bg-primary bg-opacity-20 rounded-md">
-                        <div class="flex flex-col">
-                            <label class="flex" for="1"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
-                                    id="1" value="Glúten">Glúten</label>
-                            <label class="flex" for="2"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
-                                    id="2" value="Crustáceos">Crustáceos</label>
-                            <label class="flex" for="3"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
-                                    id="3" value="Ovos">Ovos</label>
-                            <label class="flex" for="4"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
-                                    id="4" value="Leite">Leite</label>
-                            <label class="flex" for="5"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
-                                    id="5" value="Açúcar">Açúcar</label>
-                            <label class="flex" for="6"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
-                                    id="6" value="Mostarda">Mostarda</label>
+                <div class="bg-white w-full rounded-3xl p-10">
+                    <form id="input" action="">
+                        <input
+                            class="bg-primary m-3 bg-opacity-20 rounded-md text-primary placeholder-primary px-3 py-1"
+                            placeholder="Título do Cabaz" type="text" name="" id="title">
+                        <h3 class="mx-3 text-primary font-bold">Restrições Alimentares</h3>
+                        <div id="restricoes"
+                            class="mx-3 mb-3 px-3 py-2 text-primary flex items-center justify-between bg-primary bg-opacity-20 rounded-md">
+                            <div class="flex flex-col">
+                                <label class="flex" for="1"><input type="checkbox"
+                                        class="checkbox hover:ring hover:ring-gray-300" id="1"
+                                        value="Glúten">Glúten</label>
+                                <label class="flex" for="2"><input type="checkbox"
+                                        class="checkbox hover:ring hover:ring-gray-300" id="2"
+                                        value="Crustáceos">Crustáceos</label>
+                                <label class="flex" for="3"><input type="checkbox"
+                                        class="checkbox hover:ring hover:ring-gray-300" id="3" value="Ovos">Ovos</label>
+                                <label class="flex" for="4"><input type="checkbox"
+                                        class="checkbox hover:ring hover:ring-gray-300" id="4"
+                                        value="Leite">Leite</label>
+                                <label class="flex" for="5"><input type="checkbox"
+                                        class="checkbox hover:ring hover:ring-gray-300" id="5"
+                                        value="Açúcar">Açúcar</label>
+                                <label class="flex" for="6"><input type="checkbox"
+                                        class="checkbox hover:ring hover:ring-gray-300" id="6"
+                                        value="Mostarda">Mostarda</label>
+                            </div>
+                            <div class="flex flex-col ">
+                                <label class="flex" for="a"><input type="checkbox"
+                                        class="checkbox hover:ring hover:ring-gray-300" id="a"
+                                        value="Peixes">Peixes</label>
+                                <label class="flex" for="b"><input type="checkbox"
+                                        class="checkbox hover:ring hover:ring-gray-300" id="b"
+                                        value="Amendoins">Amendoins</label>
+                                <label class="flex" for="c"><input type="checkbox"
+                                        class="checkbox hover:ring hover:ring-gray-300" id="c" value="Soja">Soja</label>
+                                <label class="flex" for="d"><input type="checkbox"
+                                        class="checkbox hover:ring hover:ring-gray-300" id="d"
+                                        value="Moluscos">Moluscos</label>
+                                <label class="flex" for="e"><input type="checkbox"
+                                        class="checkbox hover:ring hover:ring-gray-300" id="e" value="Aipo">Aipo</label>
+                                <label class="flex" for="f"><input type="checkbox"
+                                        class="checkbox hover:ring hover:ring-gray-300" id="f"
+                                        value="Tremoços">Tremoços</label>
+                            </div>
                         </div>
-                        <div class="flex flex-col ">
-                            <label class="flex" for="a"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
-                                    id="a" value="Peixes">Peixes</label>
-                            <label class="flex" for="b"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
-                                    id="b" value="Amendoins">Amendoins</label>
-                            <label class="flex" for="c"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
-                                    id="c" value="Soja">Soja</label>
-                            <label class="flex" for="d"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
-                                    id="d" value="Moluscos">Moluscos</label>
-                            <label class="flex" for="e"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
-                                    id="e" value="Aipo">Aipo</label>
-                            <label class="flex" for="f"><input type="checkbox" class="checkbox hover:ring hover:ring-gray-300"
-                                    id="f" value="Tremoços">Tremoços</label>
-                        </div>
-                    </div>
-                    <label class="text-primary font-bold mx-3" for="">Fotografia:</label><button class="rounded-full border border-primary font-bold text-primary px-10">Upload</button>
-                    <input class="bg-primary m-3 bg-opacity-20 rounded-md text-primary placeholder-primary px-3 py-1" placeholder="Preço do Cabaz" type="text" name="" id="">
-                    <div class="flex justify-center mt-3"><input class="bg-primary m-3 rounded-md text-accent font-bold text-2xl px-3 py-1 cursor-pointer" type="submit" value="Publicar"></div>
-                </form>
-            </div>
+                        <input
+                            class="bg-primary m-3 bg-opacity-20 rounded-md text-primary placeholder-primary px-3 py-1"
+                            placeholder="Preço do Cabaz" type="text" name="" id="price">
+                        <div class="flex justify-center mt-3"><input
+                                class="bg-primary m-3 rounded-md text-accent font-bold text-2xl px-3 py-1 cursor-pointer"
+                                type="submit" value="Publicar"></div>
+                    </form>
+
+                    <script>
+                        const uid = localStorage.getItem("restaurantID")
+                        const dbRef = firebase.database().ref();
+                        cabazes = []
+                        dbRef.child("restaurants").child(uid).child("cabazes").get().then((snapshot) => {
+                            if (snapshot.exists()) {
+                                cabazes = snapshot.val()
+                            } else {
+                                console.log("No data available");
+                            }
+                        }).catch((error) => {
+                            console.error(error);
+                        })
+                        const form = document.getElementById("input")
+
+                        form.addEventListener("submit", (e) => {
+                            e.preventDefault()
+                            const title = document.getElementById("title").value
+                            const price = document.getElementById("price").value
+                            const restricoes = $('#restricoes input:checked').map(function () { return $(this).val(); })
+                            const cabaz = {
+                                nome: title,
+                                preco: price,
+                                restricoes: restricoes
+                            }
+                            cabazes.push(cabaz)
+                            console.log(cabaz)
+                            console.log(cabazes)
+                            localStorage.setItem("cabazes", JSON.stringify(cabazes))
+                            dbRef.child("restaurants").child(uid).child("cabazes").set(JSON.parse(localStorage.getItem("cabazes")))
+                        })
+
+                    </script>
+                </div>
         </div>
 
 
 
     </div>
 
-    <script src="sidebar.js"></script>
+    <script src="customJS/sidebar.js"></script>
 
 </body>
 

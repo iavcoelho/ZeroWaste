@@ -31,12 +31,22 @@ dbRef.child("restaurants").get().then((snapshot) => {
                             console.log(data.cabazes[cabaz])
                             nomeCabaz = data.cabazes[cabaz].nome
                             preco = data.cabazes[cabaz].preco
-                            console.log(nome, preco)
+                            restricoes = data.cabazes[cabaz].restricoes
+                            console.log(nome, preco, restricoes)
                             randId = Math.random().toString(36).substr(2, 10);
                             HTML += `
                                 <button class="bg-accent text-black text-left flex flex-row items-center justify-between p-3 my-3 rounded-3xl" style="width: 100%;" onclick="toggle('${randId}')">
                                     <div class="flex-column">
                                         <h1 class="text-xl"><b>${nomeCabaz}</b> - ${preco}€</h1>
+                                        <p>Alergénios:</p>
+                                        <ul class="px-5">` 
+                                        
+                            for (let i = 0; i < restricoes.length; i++) {
+                                HTML += `<li>${data.cabazes[cabaz].restricoes[i]}</li>`
+                            }
+
+                            HTML += `
+                            </ul>
                                     </div>
                                     <div class="img-wrapper bg-white rounded-xl flex items-center justify-center" style="width: 87px;height: 87px;"></div>
                                 </button>

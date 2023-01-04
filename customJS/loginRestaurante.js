@@ -20,4 +20,10 @@ signupForm.addEventListener('submit', (e) => {
             alert(errorMessage)
         });
 
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+              localStorage.setItem("restaurantID", user.uid)
+            }
+          });
+
 });
