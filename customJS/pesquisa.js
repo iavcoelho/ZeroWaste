@@ -39,10 +39,11 @@ dbRef.child("restaurants").get().then((snapshot) => {
                                     <div class="flex-column">
                                         <h1 class="text-xl"><b>${nomeCabaz}</b> - ${preco}€</h1>
                                         <p>Alergénios:</p>
-                                        <ul class="px-5">` 
-                                        
-                            for (let i = 0; i < restricoes.length; i++) {
-                                HTML += `<li>${data.cabazes[cabaz].restricoes[i]}</li>`
+                                        <ul class="px-5">`
+                            if (restricoes.length != 0) {
+                                for (let i = 0; i < restricoes.length; i++) {
+                                    HTML += `<li>${data.cabazes[cabaz].restricoes[i]}</li>`
+                                }
                             }
 
                             HTML += `
