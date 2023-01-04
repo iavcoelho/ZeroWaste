@@ -38,9 +38,11 @@ dbRef.child("restaurants").get().then((snapshot) => {
                                 <button class="bg-accent text-black text-left flex flex-row items-center justify-between p-3 my-3 rounded-3xl" style="width: 100%;" onclick="toggle('${randId}')">
                                     <div class="flex-column">
                                         <h1 class="text-xl"><b>${nomeCabaz}</b> - ${preco}€</h1>
-                                        <p>Alergénios:</p>
-                                        <ul class="px-5">`
+                                        `
                             if (restricoes.length != 0) {
+                                HTML += `<p>Alergénios:</p>
+                                <ul class="px-5">`
+                                console.log(restricoes.length)
                                 for (let i = 0; i < restricoes.length; i++) {
                                     HTML += `<li>${data.cabazes[cabaz].restricoes[i]}</li>`
                                 }
