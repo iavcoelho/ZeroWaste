@@ -160,6 +160,7 @@
                                 preco: price,
                                 restricoes: restricoes
                             }
+                            cabazes.push(cabaz)
                             localStorage.setItem("cabazes", JSON.stringify(cabazes))
                             dbRef.child("restaurants").child(uid).child("cabazes").set(JSON.parse(localStorage.getItem("cabazes")))
                             alert("Cabaz adicionado com sucesso")
