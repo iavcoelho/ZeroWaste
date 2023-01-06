@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <script src="customJS/config.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito" />
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.6.8/firebase-app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.6.8/firebase-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.6.8/firebase-database.js"></script>
+    <script src="customJS/main.js"></script>
+</head>
+
+<body class="bg-black flex items-center justify-center text-white">
+    <div class="bg-primary" style="width: 500px; min-height: 100vh;">
+
+        <div class="container fixed">
+            <div class="bg-accent flex justify-between sticky top-0 z-50"
+                style="height: 100px;width: 500px; border-bottom-left-radius: 50% 30%; border-bottom-right-radius: 50% 30%;">
+                <a href="cart.html"><i
+                        class="fa-solid fa-cart-shopping text-textAccent text-5xl py-3 pl-6 text-opacity-60"></i></a>
+                <img src="images/ZeroWaste logo.png" style="height: 90px;" class="py-3">
+                <i class="fa-solid fa-user text-textAccent text-5xl py-3 pr-6 text-opacity-60"></i>
+            </div>
+        </div>
+
+        <div class="container p-10" id="board" style="margin-top: 100px; width: 500px;min-height: 200px;">
+            <div class="bg-white rounded-xl">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item bg-white border border-gray-200">
+                        <h2 class="accordion-header mb-0" id="headingOne">
+                            <button class="accordion-button relative flex items-center w-full py-4 px-5 text-base text-gray-800 text-left bg-white border-0 rounded-none
+        transition
+        focus:outline-none
+      " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                aria-controls="collapseOne">
+                                Pagar Agora
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body text-black flex flex-col text-start items-start">
+                                <button class="bg-gray-300 py-4 opacity-60 cursor-not-allowed w-full text-start border-bottom-white"><i class="fa-solid fa-credit-card mr-3 ml-20"></i>Cartão de Crédito</button>
+                                <button class="bg-gray-300 py-4 opacity-60 cursor-not-allowed w-full text-start" style="border-top: solid 1px white;"><i class="fa-brands fa-paypal mr-3 ml-20"></i>Paypal</button>
+                                <button class="bg-gray-300 py-4 opacity-60 cursor-not-allowed w-full text-start flex flex-row items-center" style="border-top: solid 1px white;"><img src="images/mbway-seeklogo.com.svg" style="color: black; height: 40px; margin-left:70px;" alt=""> MBWay</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-white border border-gray-200">
+                        <h2 class="accordion-header mb-0" id="headingTwo">
+                            <button class="
+        accordion-button
+        collapsed
+        relative
+        flex
+        items-center
+        w-full
+        py-4
+        px-5
+        text-base text-gray-800 text-left
+        bg-white
+        border-0
+        rounded-none
+        transition
+        focus:outline-none
+      " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                aria-controls="collapseTwo">
+                                Pagar no local
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body py-4 px-5">
+                                <button class="text-black w-full text-start" onclick="clearCart()"><i class="fa-solid fa-coins mr-3 ml-20"></i>Pagar no local</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="bg-accent flex fixed items-center bottom-0 z-50 px-10 flex-row justify-between"
+            style="height: 100px; border-top-left-radius: 50% 30%; border-top-right-radius: 50% 30%; width: 500px;">
+            <a href="homepage.html"><i class="fa-solid fa-house text-5xl text-opacity-60"
+                    style="color:#026357;"></i></a>
+            <i class="fa-regular fa-bell text-textAccent text-5xl text-opacity-60"></i>
+            <a href="pesquisa.html">
+                <div class="flex sticky items-center justify-center rounded-full bg-secondary"
+                    style="height:100px; width: 100px; margin-top:-100px;">
+                    <i class="fa-solid fa-magnifying-glass text-green-700 text-5xl"></i>
+                </div>
+            </a>
+            <i class="fa-solid fa-gear text-textAccent text-5xl text-opacity-60"></i>
+            <i class="fa-regular fa-file text-textAccent text-5xl text-opacity-60"></i>
+        </div>
+    </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <script src="customJS/checkout.js"></script>
+</body>
+
+</html>

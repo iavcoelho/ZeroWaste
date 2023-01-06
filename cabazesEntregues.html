@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="customJS/config.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito" />
+        <link rel="stylesheet" href="main.css" />
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.6.8/firebase-app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.6.8/firebase-auth.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.6.8/firebase-database.js"></script>
+        <script src="customJS/main.js"></script>
+
+        <style>
+            #sidebar {
+                opacity: 0;
+                transition: all 300ms cubic-bezier(0, 0.77, 0.58, 1);
+            }
+
+            #sidebar.show {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        </style>
+    </head>
+
+    <body class="bg-black flex items-center justify-center text-white">
+        <div class="bg-primary relative" style="width: 500px; height: 100vh">
+            <div class="bg-accent flex items-center sticky top-0 z-50 p-10" style="height: 100px; width: 500px; border-bottom-left-radius: 50% 30%; border-bottom-right-radius: 50% 30%">
+                <button id="btnSidebarToggler" type="button" class="text-primary hover:text-textAccent">
+                    <svg id="navClosed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="height: 52px; width: 52px">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    <svg id="navOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="height: 52px; width: 52px" class="hidden">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav id="navbar" style="width: 500px" class="fixed top-0 z-40 flex flex-row justify-end px-4 sm:justify-between"></nav>
+            <div id="containerSidebar" class="z-40">
+                <div class="navbar-menu relative z-40">
+                    <div id="sidebar" class="fixed -translate-x-full" style="width: 200px; height: 100%">
+                        <div class="bg-accent py-20" style="height: 100%; border-bottom-right-radius: 70% 90%">
+                            <ul class="text-center">
+                                <a href="adicionarCabaz.html">
+                                    <li class="my-10">
+                                        <i class="fa-solid fa-circle-plus text-textDark" style="font-size: 64px"></i>
+                                        <p class="text-xl text-black">Adicionar Cabaz</p>
+                                    </li>
+                                </a>
+                                <a href="homepageRestaurante.html">
+                                    <li class="my-10">
+                                        <i class="fa fa-house text-textDark" style="font-size: 64px"></i>
+                                        <p class="text-xl text-black">Página Inicial</p>
+                                    </li>
+                                </a>
+                                <a href="notificacoes.html">
+                                    <li class="my-10">
+                                        <i class="fa fa-bell text-textDark" style="font-size: 64px"></i>
+                                        <p class="text-xl text-black">Notificações</p>
+                                    </li>
+                                </a>
+                                <li class="my-10">
+                                    <i class="fa fa-gear text-textDark" style="font-size: 64px"></i>
+                                    <p class="text-xl text-black">Definições</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-auto lg:ml-80"></div>
+            </div>
+
+            <div class="flex justify-center items-center" style="overflow: hidden">
+                <div style="position: absolute; border-radius: 15px; background-color: #b7f49c; top: 120px; height: 50px; width: 200px">&nbsp</div>
+                <div style="text-align: center; position: absolute; top: 120px; font-size: 30px; color: #026357; font-weight: bold">Notificações</div>
+                <div class="container" style="border-radius: 35px; background-color: #057c6e; margin-top: 40px; height: 750px; width: 80%">
+                    <div id="container-encomendas-aceitar" style="position: relative; background: #026357; top: 170px; height: 300px">
+                        <div style="position: absolute; font-weight: bold; font-size: 30px; left: 8px"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+                        <div style="font-weight: bold; font-size: 20px; padding-top: 50px; width: 80%; margin-left: 10%; line-height: 82.4%; margin-top: -95px; text-align: center" id="titulo">Assinalar cabazes entregues (1):</div>
+                        <div style="border-radius: 15px; width: 80%; margin-top: 15px; margin-left: 10%; height: 170px; background: #00aa95; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+                            <div style="font-weight: bold; font-size: 20px; padding-top: 20px; width: 80%; margin-left: 10%; line-height: 82.4%; text-align: center">Cabaz pequeno vegan</div>
+                            <div style="font-size: 17px; padding-top: 20px; width: 60%; margin-left: 7%; line-height: 82.4%; text-align: left">Pedido número #31241, emitido às 10h21, pelo cliente Joana Fonseca</div>
+                            <img src="images/userprofile.png" alt="userprofile" style="width: 80px; margin-top: -50px; margin-left: 220px" />
+                            <div style="float: left; margin-left: 20px; border-radius: 5px; width: 25px; height: 25px; background: #026357" class="toggle"></div>
+                            <div class="toggle" style="float: left; margin-left: 5px">Entregue</div>
+                            <div style="float: left; margin-left: 20px; border-radius: 5px; width: 25px; height: 25px; background: #026357" class="toggle"></div>
+                            <div class="toggle" style="float: left; margin-left: 5px; line-height: 82.4%">Não<br />Entregue</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.querySelectorAll(".toggle").forEach((toggle) => {
+                toggle.addEventListener("click", (e) => {
+                    e.target.parentElement.style.display = "none";
+                    document.getElementById("titulo").innerHTML = "Assinalar cabazes entregues (0):";
+                });
+                toggle.addEventListener("mouseover", (e) => {
+                    toggle.style.cursor = "pointer";
+                });
+            });
+            // clicking on the arrow should go back to the previous page and hovering over it should change the cursor to a pointer
+            document.querySelector("#container-encomendas-aceitar > div").addEventListener("mouseover", (e) => {
+                document.querySelector("#container-encomendas-aceitar > div").style.cursor = "pointer";
+            });
+            document.querySelector("#container-encomendas-aceitar > div").addEventListener("click", (e) => {
+                window.history.back();
+            });
+        </script>
+        <script src="customJS/sidebar.js"></script>
+    </body>
+</html>
