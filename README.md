@@ -2,7 +2,7 @@
 
 ## Demo
 
-A link to your website: [ZeroWaste WebApp](https://zero-waste-chi.vercel.app/)
+Link para o website: [ZeroWaste WebApp](https://zero-waste-chi.vercel.app/)
 
 
 Restaurantes Disponíveis: KFC, Ramona, Vitaminas, Lidl, Mini Preço
