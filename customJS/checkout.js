@@ -11,5 +11,5 @@ function writeToDB(cart) {
 function clearCart() {
     cart = []
     localStorage.setItem(user, [])
-    writeToDB(JSON.parse(localStorage.getItem(user)))
+    writeToDB([])
 }
