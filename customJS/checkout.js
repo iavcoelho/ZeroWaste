@@ -10,6 +10,6 @@ function writeToDB(cart) {
 
 function clearCart() {
     cart = []
-    localStorage.setItem(user, [])
+    localStorage.setItem(user, cart)
     writeToDB([])
 }
