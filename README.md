@@ -12,12 +12,12 @@ E-Mail de cada restaurante: [NOME DO RESTAURANTE]@restaurante.com
 Password das contas dos restaurantes: 123123
 
 
-## Built With
+## Tecnologias Utilizadas
 
 - [TailwindCSS](https://tailwindcss.com/)
 - [Google Firebase](https://firebase.google.com/)
 
-## Authors
+## Autores
 
 - Francisca Silva
 - Hugo Castro
